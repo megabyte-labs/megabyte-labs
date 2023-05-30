@@ -1,0 +1,109 @@
+{
+  "hosting": {
+    "public": "www",
+    "trailingSlash": false,
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=0, must-revalidate"
+          },
+          {
+            "key": "Content-Security-Policy-Report-Only",
+            "value": "default-src 'none'; connect-src 'self' api.hsforms.com forms.hsforms.com hubspot-forms-static-embed.s3.amazonaws.com www.google-analytics.com onesignal.com; font-src 'self' fonts.gstatic.com; form-action forms.hsforms.com; frame-src forms.hsforms.com www.googletagmanager.com; img-src 'self' data: forms-na1.hsforms.com forms.hsforms.com track.hubspot.com www.googletagmanager.com media.onesignal.com; manifest-src 'self'; script-src-elem 'self' 'unsafe-inline' cdn.jsdelivr.net js.hs-analytics.net js.hs-banner.com js.hs-scripts.com js.hsforms.net www.googletagmanager.com storage.googleapis.com cdn.onesignal.com onesignal.com; script-src 'unsafe-eval' 'self' js.hs-analytics.net js.hs-banner.com; style-src-attr 'unsafe-inline'; style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com onesignal.com; worker-src 'self'; prefetch-src 'self'; media-src 'self'; style-src 'self'; frame-ancestors 'none'; report-uri https://megabytelabs.report-uri.com/r/d/csp/wizard"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "SAMEORIGIN"
+          },
+          {
+            "key": "X-UA-Compatible",
+            "value": "ie=edge"
+          },
+          {
+            "key": "X-XSS-Protection",
+            "value": "1; mode=block"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(eot|otf|ttf|ttc|woff|css|js|png|webp|jpg|jpeg|ico|svg)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=2592000"
+          }
+        ]
+      },
+      {
+        "source": "blog/rss.xml",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/rss+xml"
+          }
+        ]
+      },
+      {
+        "source": "manifest.json",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/manifest+json"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "sw.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=0, must-revalidate"
+          }
+        ]
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/start",
+        "destination": "https://gitlab.com/megabyte-labs/install.doctor/-/raw/master/local/provision.sh",
+        "type": 301
+      },
+      {
+        "source": "/windows",
+        "destination": "https://gitlab.com/megabyte-labs/install.doctor/-/raw/master/local/provision.ps1",
+        "type": 301
+      },
+      {
+        "source": "/vagrant",
+        "destination": "https://gitlab.com/megabyte-labs/install.doctor/-/raw/master/local/vagrant.sh",
+        "type": 301
+      },
+      {
+        "source": "/vagrant-windows",
+        "destination": "https://gitlab.com/megabyte-labs/install.doctor/-/raw/master/local/vagrant.ps1",
+        "type": 301
+      },
+      {
+        "source": "/opensearch.xml",
+        "destination": "/docs/opensearch.xml",
+        "type": 301
+      }
+    ]
+  }
+}
